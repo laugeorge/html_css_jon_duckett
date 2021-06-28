@@ -1,0 +1,244 @@
+<!--Forms-->
+
+<!--Form controls live inside a <form> element-->
+<!--Every <form> element requires an action attribute. Its value is the URL for the page on the server
+    that will receive the info in the form when it is submitted-->
+
+<!--Method: forms can be sent using one of the two methods: get or post-->
+
+<!--Get method: values from the form are added to the end of the URL; get method is ideal for: short forms (such as search boxes) and when you are just retrieving data from web server (not sending info that should be added or deleted from a db)-->
+
+<!--Post method - the values are sent in to HTTP headers; Use the post method if your form: allows users to upload a file, is very long, contains sensitive data (eg: password), add or delete info from a db-->
+
+<!--if method attribute is not used, it will use the get method-->
+
+<form action="http://www.example.com/subscribe.php" method="get">
+    <p>This is where the form controls will appear.</p>
+</form>
+
+<br />
+<br />
+<!--Text Input-->
+<form action="http://www.example.com/login.php">
+    <p>
+        Username:
+        <!--Size = input form size, you should use CSS to control the form element-->
+        <!--name: the value of this attribute id. the form ctrl and is sent along w/ the info they enter to the server-->
+        <!--maxlength: limit the # of character a user may enter-->
+        <input type="text" name="username" size="15" maxlength="30" />
+    </p>
+    <!--Password form-->
+    <p>
+        <!--password as type: the characters are blocked out-->
+        <!--the data in a password ctrl is not sent securely to the server. Never use it to send sensitive data such as CC#.
+        For full security, server needs to set up to comm with users' browsers using SSL-->
+        Password: 
+        <input type="password" name="password" size="15" maxlength="30" />
+    </p>
+</form>
+
+<!--Text Area-->
+<br />
+<br />
+<form action="http://www.example.com/comments.php">
+    <p>Where did you think of this gig?</p>
+    <!--<textarea> element used to create a multi line text input. This is not an empty element so it needs a closing tag-->
+    <!--Use CSS to control the width and height of a <textarea>; cols and rows in older codes-->
+    <!--<textarea name="comment" cols="20" rows="4">Enter your comments...</textarea>-->
+    <textarea name="comment" cols="20" rows="4" placeholder="Enter your comments..."></textarea>
+</form>
+
+<br />
+<br />
+<!--Radio Button-->
+<form action="http://www.example.com/profile.php">
+    <p>Please select your favorite genre:
+        <br />
+        <!--The name attribute is sent to the server with the value of the option the user selects. The value of the name attribute should be the same for all of the radio buttons used-->
+        <!--Value attribute indicates the value that is sent to the server for the selected option-->
+        <!--Checked attribute-->
+        <input type="radio" name="genre" value="rock" checked="unchecked" /> Rock
+        <input type="radio" name="genre" value="pop"  /> Pop
+        <input type="radio" name="genre" value="jazz" /> Jazz
+    </p>
+</form>
+
+<br />
+<br />
+<form action="http://www.example.com/profile.php">
+    <p>Please select your favorite music service(s):
+        <br />
+        <input type="checkbox" name="service" value="itunes" />iTunes
+        <input type="checkbox" name="service" value="Spotify" />Spotify
+        <input type="checkbox" name="service" value="Google" />Google Music
+    </p>
+</form>
+
+<br />
+<br />
+<!--Drop Down List Box-->
+<form action="http://www.example.com/profile.php">
+    <p>What device do you listen to music on?</p>
+
+    <!--Select box or drop down list box with option elements-->
+    <select name="devices">
+        <option value="phone">Phone</option>
+        <option value="tablet">Tablet</option>
+        <option value="computer">Computer</option>
+    </select>
+</form>
+
+<!--Multiple Select Box-->
+<br />
+<br />
+<form action="http://www.example.com/profile.php">
+    <p>Do you play any of these sports? (You can select more than one option by holding down Control on a PC or command key on a Mac while selecting different options.)</p>
+
+    <!--Multiple attribute, allow user to select multiple options with a value of multiple-->
+    <select name="sports" size="5" multiple="multiple">
+        <option value="basketball" selected="selected">Basketball</option>
+        <option value="baseball">Baseball</option>
+        <option value="soccer">Soccer</option>
+        <option value="tennis">Tennis</option>
+    </select>
+</form>
+
+<!--File Input Box-->
+<br />
+<br />
+<!--When you allow user to upload files, element must have a post method-->
+<form action="http://www.example.com/upload.php" method="POST">
+    <p>Upload your song in MP3 format: </p>
+    <input type="file" name="user-song" /><br />
+    <input type="submit" value="Upload" />
+</form>
+
+
+<!--Submit button-->
+<br />
+<br />
+<form action="http://www.example.com/subscribe.php">
+    <p>Subscribe to our email list: </p>
+    <input type="text" name="email" />
+    <!--The submit button is used to send a form to the server; the name attribute is not necessary-->
+    <!--the value attribute is used to control the text that appears on a button-->
+    <!--use CSS to control the visual presentation of the submit button-->
+    <input type="submit" name="subscribe" value="Subscribe">
+</form>
+
+<!--Image Button-->
+<br />
+<br />
+<form action="http://www.example.org/subscribe.php">
+    <p>Subscribe to our email list: </p>
+    <input type="text" name="email" />
+    <!--Using an image for the submit button-->
+    <input type="image" src="images/subscribe.jpg" width="100" height="20" />
+
+</form>
+<br />
+<br />
+
+
+<!--Button & Hidden Controls-->
+<form action="http://www.example.com/add.php">
+    <!--the <button> element was introduced to allow users more ctrl over how their buttons appear-->
+    <button><img src="images/add.gif" alt="add" width="10" height="10" /> Add</button>
+
+    <!--type="hidden" shows a hidden form control; allow webpage author to add values to form that users cannot see;
+    e.g. can use hidden field to indicate which page the user was on when they submitted a form-->
+    <input type="hidden" name="bookmark" value="lyrics" />
+</form>
+
+<br />
+<br />
+<!--Labelling Form Control p.170-->
+<label>Age: <input type="text" name="age" /></label>
+<br />
+
+<!--For attribute states which form control the label belongs to-->
+<!-- The value of the id attribute uniquely identifies an element from all other elements on a page-->
+<!--The value of the for attribute matches that of the id attribute on the form control it is labeling-->
+
+Gender:
+<input id="female" type="radio" name="gender" value="f">
+<label for="female">Female</label>
+
+<input id="male" type="radio" name="gender" value="m">
+<label for="male">Male</label>
+
+<!--Grouping Form Elements-->
+<br />
+<br />
+<!--Group related form control together inside <fieldset> element-->
+<fieldset>
+    <!--The appearance of these lines can be ajdusted using CSS-->
+    <!--<legend> element come directly after the opening <fieldset> tag and contains a caption which helps 
+        identify the purpose of that group of form controls-->
+    
+    <legend>Contact details</legend>
+    <label>Email: <br />
+    <input type="text" name="email" /></label><br />
+
+    <label>Mobile: <br />
+    <input type="text" name="mobile" /></label><br />
+
+    <label>Telephone: <br />
+    <input type="text" name="telephone" /></label>
+</fieldset>
+
+
+<br />
+<br />
+<!--HTML 5 Form Validation-->
+<!--Validation can be performed using JS-->
+<form action="http://www.example.com/login/" method="post">
+    <label for="username">Username:</label>
+    <input type="text" name="username" required="required" /></form></title><br />
+
+    <label for="password">Password: </label>
+    <input type="text" name="password" required="required" /></form></title><br />
+
+    <input type="submit" value="Submit" />
+</form>
+
+<br />
+<br />
+<!--Date Input-->
+<form action="http://www.example.com/bookings/" method="post">
+    <label for="username">Department date:</label>
+    <!--Give the type attribute a value of date to create a date input in browsers-->
+    <input type="date" name="depart" />
+    <input type="submit" value="Submit" />
+
+</form>
+
+<br />
+<br />
+<!--HTML5: Email and URL input-->
+<form action="http://www.example.org/subscribe.php">
+    <p>Please enter your email address: </p>
+
+    <!--HTML5 will validate the user has provided info in the correct email format; Some smart phone will 
+    also display the keys you most likely need when entering emaill addr such as @-->
+    <input type="email" name="email" />
+    <input type="submit" value="Submit" />
+
+</form>
+
+<br />
+<!--URL input-->
+<form action="http://www.example.org/profile.php">
+    <p>Please enter your website address: </p>
+    <input type="url" name="website" />
+    <input type="submit" value="Submit" />
+</form>
+
+<!--HTML5: Search Input-->
+<form action="http://www.example.org/search.php">
+    <p>Search: </p>
+    <!--The <input> element should have a type attribute whose value is search-->
+    <input type="search" name="search" placeholder="Enter keyword"/>
+    <input type="submit" value="Search" />
+
+</form>
